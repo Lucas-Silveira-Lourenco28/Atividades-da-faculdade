@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Acadêmico | Cadastro de Alunos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <p class="eyebrow">SISTEMA ACADÊMICO</p>
+      <h1>Cadastro de alunos</h1>
+      <p class="muted">Gerencie os dados dos alunos em um só lugar.</p>
+    </header>
+
+    <section class="panel">
+      <h2 id="titulo-formulario">Cadastrar aluno</h2>
+      <form id="form-aluno">
+        <input type="hidden" id="aluno-id">
+        <div class="form-grid">
+          <label>Nome completo
+            <input id="nome" maxlength="120" required autocomplete="off" placeholder="Digite o nome completo">
+          </label>
+          <label>CPF
+            <input id="cpf" maxlength="14" required inputmode="numeric" autocomplete="off" placeholder="000.000.000-00">
+          </label>
+          <label>E-mail
+            <input id="email" type="email" maxlength="120" required autocomplete="off" placeholder="aluno@email.com">
+          </label>
+          <label>Telefone
+            <input id="telefone" type="tel" maxlength="15" required autocomplete="off" placeholder="(34) 99999-9999">
+          </label>
+          <label>Curso
+            <input id="curso" maxlength="100" required autocomplete="off" placeholder="Ex.: Análise e Desenvolvimento de Sistemas">
+          </label>
+          <label>Período
+            <select id="periodo" required>
+              <option value="">Selecione</option>
+              <option>1º período</option>
+              <option>2º período</option>
+              <option>3º período</option>
+              <option>4º período</option>
+              <option>5º período</option>
+              <option>6º período</option>
+              <option>7º período</option>
+              <option>8º período</option>
+              <option>9º período</option>
+              <option>10º período</option>
+            </select>
+          </label>
+        </div>
+        <div class="actions">
+          <button class="primary" id="botao-salvar" type="submit">Cadastrar aluno</button>
+          <button class="secondary hidden" id="botao-cancelar" type="button">Cancelar edição</button>
+        </div>
+      </form>
+      <p id="mensagem" role="status" class="message"></p>
+    </section>
+
+    <section class="panel">
+      <div class="list-header">
+        <div>
+          <h2>Alunos cadastrados</h2>
+          <p class="muted">Consulte, edite ou exclua os registros.</p>
+        </div>
+        <div class="list-tools">
+          <input id="busca" type="search" class="search" autocomplete="off"
+                 aria-label="Buscar aluno" placeholder="Buscar por nome, CPF, e-mail ou curso">
+          <span id="total-alunos" class="count">0 alunos</span>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th><th>CPF</th><th>E-mail</th><th>Telefone</th><th>Curso</th><th>Período</th><th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="lista-alunos">
+            <tr><td colspan="7" class="empty">Carregando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>Projeto acadêmico demonstrativo • Node.js, Express e SQLite</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
